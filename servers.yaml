@@ -1,0 +1,15 @@
+---
+- name: cent7-01
+  box: geerlingguy/centos7
+  ram: 512
+  ip: 172.17.0.10
+
+- name: cent7-02
+  box: geerlingguy/centos7
+  ram: 512
+  ip: 172.17.0.11
+
+- name: cent7-03
+  box: geerlingguy/centos7
+  ram: 512
+  ip: 172.17.0.12

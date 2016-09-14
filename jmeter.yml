@@ -1,0 +1,7 @@
+---
+#JMETER Playbook File
+ - hosts: all
+   remote_user: vagrant
+   sudo: True
+   roles:
+   - jmeter

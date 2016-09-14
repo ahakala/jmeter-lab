@@ -1,0 +1,26 @@
+---
+# tasks file for jmeter
+ - name: Install JRE 7
+   yum:
+     name: java-1.7.0-openjdk
+     state: present
+
+ - name: create jmeter dir
+   file:
+     path: /usr/local/share/jmeter
+     state: directory
+
+ - name: download jmeter
+   get_url:
+     url: http://www-us.apache.org/dist//jmeter/binaries/apache-jmeter-3.0.tgz
+     dest: /tmp/apache-jmeter-3.0.tgz
+
+ - name: unpack jmeter
+   unarchive:
+     src: /tmp/apache-jmeter-3.0.tgz
+     dest: /usr/local/share/jmeter
+     copy: no
+     creates: /usr/local/share/jmeter/apache-jmeter-3.0/bin/jmeter-server
+     
+ - name: start jmeter
+   command: /usr/local/share/jmeter/apache-jmeter-3.0/bin/jmeter-server -Djava.rmi.server.hostname={{ansible_enp0s8.ipv4.address}}
